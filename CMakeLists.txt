@@ -42,3 +42,10 @@ add_definitions(${LLVM_DEFINITIONS})
 
 add_subdirectory(include)
 add_subdirectory(lib)
+
+# About test: https://cliutils.gitlab.io/modern-cmake/chapters/testing/googletest.html
+option(BUILD_UNITTESTS "Build unittests" OFF)
+if(BUILD_UNITTESTS)
+  enable_testing()
+  add_subdirectory(unittests)
+endif()
