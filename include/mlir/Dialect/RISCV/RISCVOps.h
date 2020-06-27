@@ -4,10 +4,10 @@
 #include "mlir/IR/OpDefinition.h"
 
 namespace mlir {
-namespace riscv {
+namespace rv32i {
 
 #define GET_OP_CLASSES
-#include "mlir/Dialect/RISCV/RISCVOps.h.inc"
+#include "mlir/Dialect/RISCV/RV32IOps.h.inc"
 
-} // namespace riscv
+} // namespace rv32i
 } // namespace mlir

@@ -1,3 +1,3 @@
-add_mlir_dialect(RISCVOps riscv)
-add_mlir_doc(RISCVDialect -gen-dialect-doc RISCVDialect RISCV/)
-add_mlir_doc(RISCVOps -gen-op-doc RISCVOps RISCV/)
+add_mlir_dialect(RV32IOps rv32i)
+add_mlir_doc(RV32IDialect -gen-dialect-doc RV32IDialect RISCV/)
+add_mlir_doc(RV32IOps -gen-op-doc RV32IOps RISCV/)

@@ -1,12 +1,14 @@
 #include "mlir/Dialect/RISCV/RISCVOps.h"
 #include "mlir/Dialect/RISCV/RISCVDialect.h"
+#include "mlir/IR/Builders.h"
 #include "mlir/IR/OpImplementation.h"
+#include "mlir/IR/StandardTypes.h"
 
 namespace mlir {
-namespace riscv {
+namespace rv32i {
 
 #define GET_OP_CLASSES
-#include "mlir/Dialect/RISCV/RISCVOps.cpp.inc"
+#include "mlir/Dialect/RISCV/RV32IOps.cpp.inc"
 
-} // namespace riscv
+} // namespace rv32i
 } // namespace mlir

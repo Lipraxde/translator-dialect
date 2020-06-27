@@ -6,7 +6,7 @@ add_mlir_dialect_library(MLIRRISCV
   ${PROJECT_SOURCE_DIR}/include
 
   DEPENDS
-  MLIRRISCVOpsIncGen
+  MLIRRV32IOpsIncGen
 
   LINK_LIBS PUBLIC
   MLIRIR

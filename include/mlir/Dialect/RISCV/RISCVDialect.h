@@ -3,9 +3,9 @@
 #include "mlir/IR/Dialect.h"
 
 namespace mlir {
-namespace riscv {
+namespace rv32i {
 
-#include "mlir/Dialect/RISCV/RISCVOpsDialect.h.inc"
+#include "mlir/Dialect/RISCV/RV32IOpsDialect.h.inc"
 
-} // namespace riscv
+} // namespace rv32i
 } // namespace mlir
