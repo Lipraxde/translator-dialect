@@ -5,7 +5,7 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/google/googletest.git
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND ""
+  INSTALL_COMMAND   ""
   TEST_COMMAND      ""
 )
 
@@ -14,8 +14,8 @@ if(NOT googletest_POPULATED)
   FetchContent_Populate(googletest)
   # https://github.com/google/googletest/issues/868
   add_subdirectory(${googletest_SOURCE_DIR}
-									 ${googletest_BINARY_DIR}
- 									 EXCLUDE_FROM_ALL)
+                   ${googletest_BINARY_DIR}
+                   EXCLUDE_FROM_ALL)
 endif()
 
 set(GTestMain ${CMAKE_CURRENT_LIST_DIR}/GTestMain.cpp)

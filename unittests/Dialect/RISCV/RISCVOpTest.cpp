@@ -8,11 +8,16 @@
 #include "mlir/IR/StandardTypes.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/StringRef.h"
+#include "llvm/Support/raw_ostream.h"
 
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
+
+#include <string>
 
 using namespace llvm;
 using namespace mlir;
+using namespace testing;
 
 namespace {
 
@@ -46,10 +51,18 @@ protected:
 
 } // namespace
 
+#define MLIR_CONTEXT    context
+#define MLIR_OP_BUILDER builder
+#include "mlir/IR/IRMacros.h"
+
+ALIAS_NAME(::mlir::rv32i, RV32, ADDOp)
+
 TEST_F(RISCVOpTest, RV32I) {
-  builder.create<rv32i::ADDOp>(
-      loc, IntegerAttr::get(IntegerType::get(5, &context), 0),
-      IntegerAttr::get(IntegerType::get(5, &context), 1),
-      IntegerAttr::get(IntegerType::get(5, &context), 2));
-  module->dump();
+  OP(RV32ADDOp, INT5Attr(0), INT5Attr(1), INT5Attr(2));
+
+  std::string text;
+  llvm::raw_string_ostream stream(text);
+  module->print(stream);
+
+  EXPECT_THAT(text, HasSubstr("rv32i.add"));
 }
