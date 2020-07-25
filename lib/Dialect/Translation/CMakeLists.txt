@@ -1,11 +1,10 @@
 add_mlir_dialect_library(MLIRTranslationDialect
+  IR/RegOpInterface.cpp
   IR/TranslationDialect.cpp
   IR/TranslationOps.cpp
 
-  ADDITIONAL_HEADER_DIRS
-  ${PROJECT_SOURCE_DIR}/include
-
   DEPENDS
+  MLIRRegOpInterfaceIncGen
   MLIRTranslationOpsIncGen
 
   LINK_LIBS PUBLIC

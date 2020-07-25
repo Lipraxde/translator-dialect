@@ -2,9 +2,6 @@ add_mlir_dialect_library(MLIRRISCV
   IR/RISCVDialect.cpp
   IR/RISCVOps.cpp
 
-  ADDITIONAL_HEADER_DIRS
-  ${PROJECT_SOURCE_DIR}/include
-
   DEPENDS
   MLIRRV32IOpsIncGen
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "mlir/Dialect/Translation/RegOpInterface.h"
 #include "mlir/IR/Dialect.h"
 #include "mlir/IR/OpDefinition.h"
 #include "mlir/IR/SymbolTable.h"
