@@ -24,7 +24,13 @@ function(add_gtest TESTNAME)
   cmake_parse_arguments(ARG "" "" "LINK_LIBS" ${ARGN})
   list(APPEND SRCS ${SOURCE} ${ARG_UNPARSED_ARGUMENTS})
   add_executable(${TESTNAME} ${SRCS} ${GTestMain})
-  target_link_libraries(${TESTNAME} ${ARG_LINK_LIBS} gtest gmock)
+  target_link_libraries(${TESTNAME}
+                        ${ARG_LINK_LIBS}
+                        gtest gmock
+                        MLIRStandardOps
+                        MLIRRISCV
+                        MLIRTranslationDialect
+  )
   add_test(NAME ${TESTNAME} COMMAND ${TESTNAME})
   set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
 endfunction()

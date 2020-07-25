@@ -1,5 +1,5 @@
-#ifndef RV32I_DIALECT
-#define RV32I_DIALECT
+#ifndef MLIR_RISCV_RV32IDIALECT
+#define MLIR_RISCV_RV32IDIALECT
 
 include "mlir/IR/OpBase.td"
 
@@ -9,10 +9,11 @@ def RV32I_Dialect : Dialect {
   let description = [{
     This dialect is a MLIR dialect designed to represent RV32I instructions.
   }];
+
   let cppNamespace = "rv32i";
 }
 
-class RV32I_Op<string mnemonic, list<OpTrait> traits = []> :
-    Op<RV32I_Dialect, mnemonic, traits>;
+class RV32I_Op<string mnemonic, list<OpTrait> traits = []>
+    : Op<RV32I_Dialect, mnemonic, traits>;
 
-#endif // RV32I_DIALECT
+#endif // MLIR_RISCV_RV32IDIALECT

@@ -72,7 +72,7 @@
 /*** Operation Macros start ***/
 
 #define ALIAS_NAME(name_space, alias, name)                                    \
-  using alias##name = name_space::name;
+  using alias##name = name_space::name##Op;
 
 #define OP(name, ...)                                                          \
   MLIR_OP_BUILDER.create<name>(MLIR_OP_BUILDER.getUnknownLoc(), ##__VA_ARGS__)
