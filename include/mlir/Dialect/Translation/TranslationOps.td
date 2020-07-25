@@ -13,6 +13,7 @@ def Translation_RegModuleOp
     : Translation_Op<"reg_module",
                      [IsolatedFromAbove,
                       SingleBlockImplicitTerminator<"RegModuleEndOp">,
+                      Symbol,
                       SymbolTable]> {
   let regions = (region SizedRegion<1>:$body);
 

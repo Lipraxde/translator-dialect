@@ -1,5 +1,6 @@
 #include "../../MLIRTest.h"
 #include "mlir/Dialect/Translation/TranslationOps.h"
+#include "mlir/IR/Attributes.h"
 #include "mlir/IR/Builders.h"
 #include "mlir/IR/MLIRContext.h"
 #include "mlir/IR/Module.h"
@@ -30,6 +31,7 @@ ALIAS_NAME(::mlir::translation, BT, RegConcat)
 
 TEST_F(TranslationOpTest, DefineReg) {
   auto regModule = OP(BTRegModule);
+  regModule.setName("unknown_regtable");
   builder.setInsertionPointToStart(regModule.getBody());
 
   auto reg1 = OP(BTReg, 8);
@@ -39,5 +41,7 @@ TEST_F(TranslationOpTest, DefineReg) {
   reg1.setName("reg1");
   reg2.setName("reg2");
   reg3.setName("reg3");
-  module->dump();
+
+  auto reg = module->lookupSymbol(NestSym("unknown_regtable", Sym("reg3")));
+  EXPECT_NE(reg, nullptr) << "Referenced register not found";
 }

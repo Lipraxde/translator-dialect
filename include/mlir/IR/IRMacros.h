@@ -67,6 +67,10 @@
 #define UINT32Attr(val) UINTNAttr(32, (val))
 #define UINT64Attr(val) UINTNAttr(64, (val))
 
+#define Sym(name) ::mlir::SymbolRefAttr::get((name), &MLIR_CONTEXT)
+#define NestSym(__namespace, symref)                                           \
+  ::mlir::SymbolRefAttr::get((__namespace), (symref), &MLIR_CONTEXT)
+
 /*** Attribute Macros end ***/
 
 /*** Operation Macros start ***/
@@ -78,3 +82,6 @@
   MLIR_OP_BUILDER.create<name>(MLIR_OP_BUILDER.getUnknownLoc(), ##__VA_ARGS__)
 
 /*** Operation Macros end ***/
+
+#define Array(...)                                                             \
+  ArrayRef { __VA_ARGS__ }
